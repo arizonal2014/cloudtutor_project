@@ -238,32 +238,6 @@ curl http://127.0.0.1:8080/health
 curl http://127.0.0.1:8080/computer-use/health
 ```
 
-### Judge-friendly reproducible test flow
-
-Run these commands in order:
-
-```bash
-make verify-session01
-make verify-session02
-make verify-session03
-make verify-session04
-make verify-session05
-make verify-session07
-make verify-session08
-make verify-session09
-make verify-session10
-make verify-session11
-make verify-session12
-make verify-session13
-make verify-next
-```
-
-If cloud access is configured, judges can also run:
-
-```bash
-make verify-cloud
-```
-
 ### Recommended manual demo test
 
 1. Run `make dev-next`
