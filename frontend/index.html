@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CloudTutor Session 02 Frontend</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <main class="container">
+    <h1>CloudTutor Session 02 Frontend</h1>
+    <p class="subtitle">Realtime websocket shell (text + microphone streaming).</p>
+
+    <section class="panel">
+      <div class="grid">
+        <label>
+          Backend URL
+          <input id="backendUrl" value="http://127.0.0.1:8080" />
+        </label>
+        <label>
+          User ID
+          <input id="userId" value="demo-user" />
+        </label>
+        <label>
+          Session ID
+          <input id="sessionId" value="session-002" />
+        </label>
+      </div>
+
+      <div class="actions">
+        <button id="connectBtn">Connect</button>
+        <button id="disconnectBtn" disabled>Disconnect</button>
+        <button id="pingBtn" disabled>Ping</button>
+      </div>
+
+      <p>Status: <span id="status" class="status">disconnected</span></p>
+      <p>Microphone: <span id="micStatus" class="status">stopped</span></p>
+    </section>
+
+    <section class="panel">
+      <label>
+        Send text message
+        <textarea id="messageInput" rows="3" placeholder="Type a test message"></textarea>
+      </label>
+      <div class="actions">
+        <button id="sendBtn" disabled>Send</button>
+        <button id="startMicBtn" disabled>Start Mic</button>
+        <button id="stopMicBtn" disabled>Stop Mic</button>
+      </div>
+    </section>
+
+    <section class="panel transcript-grid">
+      <div>
+        <h2>User Transcript</h2>
+        <pre id="userTranscript" class="log transcript"></pre>
+      </div>
+      <div>
+        <h2>Agent Transcript</h2>
+        <pre id="agentTranscript" class="log transcript"></pre>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>Event Log</h2>
+      <pre id="eventLog" class="log"></pre>
+    </section>
+  </main>
+
+  <script src="/app.js"></script>
+</body>
+</html>

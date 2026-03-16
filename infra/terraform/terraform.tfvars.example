@@ -1,0 +1,31 @@
+project_id = "cloudtutor-490215"
+region     = "us-central1"
+
+service_name = "cloudtutor-backend"
+artifact_repo = "cloudtutor-images"
+image_name    = "cloudtutor-backend"
+image_tag     = "latest"
+
+allow_unauthenticated = true
+create_artifact_registry = true
+create_artifact_bucket   = false
+create_firestore_database = false
+
+min_instances = 0
+max_instances = 3
+cpu           = "2"
+memory        = "2Gi"
+
+env_vars = {
+  GOOGLE_GENAI_USE_VERTEXAI       = "1"
+  GOOGLE_CLOUD_PROJECT            = "cloudtutor-490215"
+  GOOGLE_CLOUD_LOCATION           = "us-central1"
+  VERTEXAI_PROJECT                = "cloudtutor-490215"
+  VERTEXAI_LOCATION               = "us-central1"
+  CLOUDTUTOR_AUDIO_DOWNLINK_MODE  = "binary"
+  CLOUDTUTOR_RESPONSE_MODE        = "audio"
+  CLOUDTUTOR_COMPUTER_USE_PROVIDER = "playwright"
+  CLOUDTUTOR_COMPUTER_USE_MODEL   = "gemini-2.5-computer-use-preview-10-2025"
+  CLOUDTUTOR_FIRESTORE_ENABLED    = "1"
+  CLOUDTUTOR_FIRESTORE_COLLECTION = "cloudtutor_sessions"
+}

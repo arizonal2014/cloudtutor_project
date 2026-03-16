@@ -1,0 +1,6 @@
+{
+  "projects": {
+    "default": "cloudtutor-challenge",
+    "challenge": "cloudtutor-challenge"
+  }
+}
