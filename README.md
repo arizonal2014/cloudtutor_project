@@ -10,7 +10,7 @@ Built for the Gemini Live Agent Challenge.
 - Interruptible tutoring flow with natural barge-in
 - Grounded answers with official source links
 - Split-screen documentation walkthroughs
-- Computer-use navigation with Playwright or Browserbase
+- Computer-use navigation with Browserbase
 - Tutorial artifact generation from the session transcript
 - Cloud Run deployment and Terraform infrastructure support
 
@@ -18,7 +18,7 @@ Built for the Gemini Live Agent Challenge.
 
 ![CloudTutor Architecture Diagram](docs/CloudTutor_Architecture_Diagram.svg)
 
-The diagram shows how the Next.js frontend connects to the FastAPI backend, how the backend orchestrates Gemini Live API through ADK, how computer-use navigation runs through Playwright or Browserbase, and how Cloud Run, Vertex AI, and optional persistence/storage hooks fit into the system.
+The diagram shows how the Next.js frontend connects to the FastAPI backend, how the backend orchestrates Gemini Live API through ADK, how computer-use navigation runs through Browserbase, and how Cloud Run, Vertex AI, and optional persistence/storage hooks fit into the system.
 
 ## Stack
 
@@ -30,7 +30,6 @@ The diagram shows how the Next.js frontend connects to the FastAPI backend, how 
 - Next.js
 - React
 - TypeScript
-- Playwright
 - Browserbase
 - Cloud Run
 
@@ -61,12 +60,6 @@ python3 -m venv .venv
 source .venv/bin/activate
 pip install --upgrade pip
 pip install -r backend/requirements.txt
-```
-
-Install the Playwright browser once:
-
-```bash
-.venv/bin/playwright install chromium
 ```
 
 ## 2. Frontend Setup
@@ -108,21 +101,21 @@ CLOUDTUTOR_APP_NAME=cloudtutor-backend
 CLOUDTUTOR_AGENT_VOICE=Puck
 CLOUDTUTOR_AGENT_LANGUAGE=en-US
 CLOUDTUTOR_AUDIO_DOWNLINK_MODE=binary
-CLOUDTUTOR_COMPUTER_USE_PROVIDER=playwright
+CLOUDTUTOR_COMPUTER_USE_PROVIDER=browserbase
 CLOUDTUTOR_COMPUTER_USE_MODEL=gemini-2.5-computer-use-preview-10-2025
+BROWSERBASE_API_KEY=PASTE_BROWSERBASE_API_KEY
+BROWSERBASE_PROJECT_ID=PASTE_BROWSERBASE_PROJECT_ID
 ```
 
 ### Browserbase configuration
 
-Browserbase is optional locally, but recommended when you want a hosted browser session:
+Browserbase is the recommended computer-use configuration for this project:
 
 ```env
 BROWSERBASE_API_KEY=PASTE_BROWSERBASE_API_KEY
 BROWSERBASE_PROJECT_ID=PASTE_BROWSERBASE_PROJECT_ID
 CLOUDTUTOR_COMPUTER_USE_PROVIDER=browserbase
 ```
-
-If Browserbase is not configured, CloudTutor falls back to Playwright.
 
 ### Vertex AI configuration
 
@@ -235,7 +228,6 @@ python3 -m venv .venv
 source .venv/bin/activate
 pip install --upgrade pip
 pip install -r backend/requirements.txt
-.venv/bin/playwright install chromium
 npm --prefix frontend-next install
 cp .env.example .env
 ```
@@ -244,7 +236,7 @@ Then add valid credentials to `.env`:
 
 - `GOOGLE_API_KEY` for Gemini Live API in AI Studio mode, or
 - Vertex AI settings for Google Cloud mode
-- Optional Browserbase credentials if you want hosted browser sessions
+- Browserbase credentials for hosted browser sessions
 
 ### Run the app
 
@@ -346,5 +338,5 @@ See:
 ## Notes
 
 - The backend loads environment variables from both the project root `.env` and `cloud_tutor_agent/.env` if present.
-- Local computer-use defaults to Playwright unless Browserbase keys are configured.
+- The submission configuration uses Browserbase for computer-use browser sessions.
 - The public submission repo intentionally excludes cloned/reference repos and local runtime state.

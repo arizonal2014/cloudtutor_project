@@ -88,10 +88,8 @@
   <text x="900" y="654" class="body">- Drives browser navigation step by step</text>
   <text x="900" y="678" class="body">- Supports safety approvals when needed</text>
   <text x="900" y="702" class="body">- Streams navigator timeline back to frontend</text>
-  <rect x="900" y="724" width="145" height="26" rx="13" fill="url(#accent)"/>
-  <text x="933" y="742" class="chip">Playwright</text>
-  <rect x="1060" y="724" width="155" height="26" rx="13" fill="url(#accent)"/>
-  <text x="1093" y="742" class="chip">Browserbase</text>
+  <rect x="900" y="724" width="190" height="26" rx="13" fill="url(#accent)"/>
+  <text x="938" y="742" class="chip">Browserbase Session</text>
 
   <rect x="1340" y="520" width="200" height="240" class="box"/>
   <text x="1370" y="566" class="section">GOOGLE CLOUD</text>
