@@ -194,27 +194,6 @@ Computer-use readiness:
 curl http://127.0.0.1:8080/computer-use/health
 ```
 
-## 6. Verification Commands
-
-Core checks:
-
-```bash
-make verify-session01
-make verify-session02
-make verify-session03
-make verify-session04
-make verify-session05
-make verify-session07
-make verify-session08
-make verify-session09
-make verify-session10
-make verify-session11
-make verify-session12
-make verify-session13
-make verify-next
-make verify-cloud
-```
-
 ## Reproducible Testing Instructions
 
 Judges can reproduce the project locally with the steps below.
