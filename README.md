@@ -14,6 +14,12 @@ Built for the Gemini Live Agent Challenge.
 - Tutorial artifact generation from the session transcript
 - Cloud Run deployment and Terraform infrastructure support
 
+## Architecture Diagram
+
+![CloudTutor Architecture Diagram](docs/CloudTutor_Architecture_Diagram.svg)
+
+The diagram shows how the Next.js frontend connects to the FastAPI backend, how the backend orchestrates Gemini Live API through ADK, how computer-use navigation runs through Playwright or Browserbase, and how Cloud Run, Firestore, Cloud Storage, and Vertex AI fit into the system.
+
 ## Stack
 
 - Python
