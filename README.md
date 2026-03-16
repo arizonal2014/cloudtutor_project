@@ -18,7 +18,7 @@ Built for the Gemini Live Agent Challenge.
 
 ![CloudTutor Architecture Diagram](docs/CloudTutor_Architecture_Diagram.svg)
 
-The diagram shows how the Next.js frontend connects to the FastAPI backend, how the backend orchestrates Gemini Live API through ADK, how computer-use navigation runs through Playwright or Browserbase, and how Cloud Run, Firestore, Cloud Storage, and Vertex AI fit into the system.
+The diagram shows how the Next.js frontend connects to the FastAPI backend, how the backend orchestrates Gemini Live API through ADK, how computer-use navigation runs through Playwright or Browserbase, and how Cloud Run, Vertex AI, and optional persistence/storage hooks fit into the system.
 
 ## Stack
 
@@ -33,7 +33,6 @@ The diagram shows how the Next.js frontend connects to the FastAPI backend, how 
 - Playwright
 - Browserbase
 - Cloud Run
-- Firestore and Cloud Storage integrations
 
 ## Repository Layout
 
