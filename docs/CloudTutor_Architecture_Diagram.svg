@@ -1,0 +1,145 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="980" viewBox="0 0 1600 980" role="img" aria-labelledby="title desc">
+  <title id="title">CloudTutor Architecture Diagram</title>
+  <desc id="desc">Architecture diagram for CloudTutor showing the Next.js frontend, FastAPI backend, Gemini Live API with ADK, computer-use browser automation, persistence, artifact generation, and Google Cloud deployment.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#08111f"/>
+      <stop offset="100%" stop-color="#10253c"/>
+    </linearGradient>
+    <linearGradient id="panel" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#13263e"/>
+      <stop offset="100%" stop-color="#0f1d31"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#4fd1ff"/>
+      <stop offset="100%" stop-color="#78f0c7"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#000000" flood-opacity="0.32"/>
+    </filter>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#89d8ff"/>
+    </marker>
+    <style>
+      .title { font: 700 34px Arial, sans-serif; fill: #f4fbff; }
+      .subtitle { font: 400 16px Arial, sans-serif; fill: #bdd6e8; }
+      .section { font: 700 18px Arial, sans-serif; fill: #f4fbff; letter-spacing: 1px; }
+      .label { font: 700 20px Arial, sans-serif; fill: #f9fcff; }
+      .body { font: 400 15px Arial, sans-serif; fill: #c7dced; }
+      .small { font: 400 13px Arial, sans-serif; fill: #a9c4da; }
+      .chip { font: 700 12px Arial, sans-serif; fill: #08111f; }
+      .flow { font: 700 14px Arial, sans-serif; fill: #d8f5ff; }
+      .box { fill: url(#panel); stroke: #2d5676; stroke-width: 2; rx: 22; ry: 22; filter: url(#shadow); }
+      .soft { fill: none; stroke: #7dcfff; stroke-width: 3; marker-end: url(#arrow); }
+      .dashed { fill: none; stroke: #78f0c7; stroke-width: 3; stroke-dasharray: 10 10; marker-end: url(#arrow); }
+      .thin { fill: none; stroke: #5fa8d3; stroke-width: 2.5; marker-end: url(#arrow); }
+    </style>
+  </defs>
+
+  <rect width="1600" height="980" fill="url(#bg)"/>
+
+  <text x="60" y="64" class="title">CloudTutor Architecture Diagram</text>
+  <text x="60" y="94" class="subtitle">Voice-first live tutor for Google Cloud with interruptible Gemini conversation, browser walkthroughs, grounding, persistence, and artifact generation.</text>
+
+  <rect x="60" y="140" width="250" height="160" class="box"/>
+  <text x="90" y="186" class="section">USER</text>
+  <text x="90" y="222" class="label">Learner</text>
+  <text x="90" y="250" class="body">- Speaks naturally</text>
+  <text x="90" y="274" class="body">- Interrupts the tutor</text>
+  <text x="90" y="298" class="body">- Asks for "show me more"</text>
+
+  <rect x="380" y="140" width="410" height="230" class="box"/>
+  <text x="410" y="186" class="section">CLIENT EXPERIENCE</text>
+  <text x="410" y="222" class="label">Next.js Frontend</text>
+  <text x="410" y="250" class="body">- Voice capture and streamed audio playback</text>
+  <text x="410" y="274" class="body">- WebSocket session to backend</text>
+  <text x="410" y="298" class="body">- Split-screen docs walkthrough UI</text>
+  <text x="410" y="322" class="body">- Timeline, navigator state, approvals, artifacts</text>
+  <rect x="410" y="334" width="170" height="26" rx="13" fill="url(#accent)"/>
+  <text x="433" y="352" class="chip">React + TypeScript</text>
+  <rect x="592" y="334" width="150" height="26" rx="13" fill="url(#accent)"/>
+  <text x="621" y="352" class="chip">Web Audio</text>
+
+  <rect x="870" y="140" width="420" height="320" class="box"/>
+  <text x="900" y="186" class="section">APPLICATION BACKEND</text>
+  <text x="900" y="222" class="label">FastAPI + CloudTutor Orchestrator</text>
+  <text x="900" y="250" class="body">- WebSocket gateway for live multimodal sessions</text>
+  <text x="900" y="274" class="body">- Dialogue state, interruption handling, topic inference</text>
+  <text x="900" y="298" class="body">- Grounding and source citation collection</text>
+  <text x="900" y="322" class="body">- Guided docs navigation state machine</text>
+  <text x="900" y="346" class="body">- Tutorial artifact generation and export</text>
+  <rect x="900" y="376" width="180" height="26" rx="13" fill="url(#accent)"/>
+  <text x="937" y="394" class="chip">FastAPI + WebSockets</text>
+  <rect x="1094" y="376" width="160" height="26" rx="13" fill="url(#accent)"/>
+  <text x="1125" y="394" class="chip">Python + ADK</text>
+  <text x="900" y="432" class="small">Core modules: live agent, dialogue state, persistence, artifacts, computer-use worker</text>
+
+  <rect x="1340" y="140" width="200" height="160" class="box"/>
+  <text x="1370" y="186" class="section">MODEL LAYER</text>
+  <text x="1370" y="222" class="label">Gemini Live API</text>
+  <text x="1370" y="250" class="body">- Realtime speech in/out</text>
+  <text x="1370" y="274" class="body">- ADK live agent runtime</text>
+  <text x="1370" y="298" class="body">- Grounded responses</text>
+
+  <rect x="870" y="520" width="420" height="240" class="box"/>
+  <text x="900" y="566" class="section">COMPUTER USE LAYER</text>
+  <text x="900" y="602" class="label">Docs Walkthrough Engine</text>
+  <text x="900" y="630" class="body">- Opens official Google Cloud or Firebase docs</text>
+  <text x="900" y="654" class="body">- Drives browser navigation step by step</text>
+  <text x="900" y="678" class="body">- Supports safety approvals when needed</text>
+  <text x="900" y="702" class="body">- Streams navigator timeline back to frontend</text>
+  <rect x="900" y="724" width="145" height="26" rx="13" fill="url(#accent)"/>
+  <text x="933" y="742" class="chip">Playwright</text>
+  <rect x="1060" y="724" width="155" height="26" rx="13" fill="url(#accent)"/>
+  <text x="1093" y="742" class="chip">Browserbase</text>
+
+  <rect x="1340" y="520" width="200" height="240" class="box"/>
+  <text x="1370" y="566" class="section">GOOGLE CLOUD</text>
+  <text x="1370" y="602" class="label">Deployment + Storage</text>
+  <text x="1370" y="630" class="body">- Cloud Run backend</text>
+  <text x="1370" y="654" class="body">- Vertex AI mode</text>
+  <text x="1370" y="678" class="body">- Firestore session mirror</text>
+  <text x="1370" y="702" class="body">- Cloud Storage artifacts</text>
+  <text x="1370" y="726" class="body">- Cloud Build + Terraform</text>
+
+  <rect x="380" y="460" width="410" height="300" class="box"/>
+  <text x="410" y="506" class="section">PERSISTENCE + OUTPUTS</text>
+  <text x="410" y="542" class="label">Session Memory and Learning Artifacts</text>
+  <text x="410" y="570" class="body">- Local session transcript store</text>
+  <text x="410" y="594" class="body">- Optional Firestore persistence mirror</text>
+  <text x="410" y="618" class="body">- Tutorial notes and diagram generation</text>
+  <text x="410" y="642" class="body">- HTML export and optional PDF output</text>
+  <text x="410" y="666" class="body">- Source links and reusable study material</text>
+  <rect x="410" y="708" width="135" height="26" rx="13" fill="url(#accent)"/>
+  <text x="441" y="726" class="chip">Artifacts</text>
+  <rect x="558" y="708" width="160" height="26" rx="13" fill="url(#accent)"/>
+  <text x="591" y="726" class="chip">Persistence</text>
+
+  <path d="M 310 220 L 380 220" class="soft"/>
+  <text x="324" y="206" class="flow">1. voice + text</text>
+
+  <path d="M 790 255 L 870 255" class="soft"/>
+  <text x="806" y="240" class="flow">2. live session events</text>
+
+  <path d="M 1290 255 L 1340 255" class="soft"/>
+  <text x="1270" y="236" class="flow">3. realtime model calls</text>
+
+  <path d="M 1290 620 L 1340 620" class="soft"/>
+  <text x="1222" y="601" class="flow">6. deploy, persist, store</text>
+
+  <path d="M 1080 460 L 1080 520" class="soft"/>
+  <text x="1096" y="496" class="flow">4. launch walkthrough</text>
+
+  <path d="M 870 640 L 790 640" class="soft"/>
+  <text x="724" y="621" class="flow">5. timeline + approvals</text>
+
+  <path d="M 870 700 L 790 700" class="dashed"/>
+  <text x="643" y="682" class="flow">7. session notes + artifact output</text>
+
+  <path d="M 585 370 L 585 460" class="thin"/>
+  <text x="602" y="420" class="flow">UI state and session transcript</text>
+
+  <rect x="60" y="820" width="1480" height="110" class="box"/>
+  <text x="92" y="862" class="section">END-TO-END FLOW</text>
+  <text x="92" y="892" class="body">User asks a cloud question -> Gemini Live answers with an interruptible voice response -> user says "show me more" -> backend infers the service topic -> computer-use opens official documentation -> frontend switches into split-screen mode -> CloudTutor narrates the walkthrough -> artifacts are generated from the session.</text>
+</svg>
