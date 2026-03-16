@@ -217,6 +217,87 @@ make verify-next
 make verify-cloud
 ```
 
+## Reproducible Testing Instructions
+
+Judges can reproduce the project locally with the steps below.
+
+### Setup
+
+```bash
+git clone https://github.com/arizonal2014/cloudtutor_project.git
+cd cloudtutor_project
+python3 -m venv .venv
+source .venv/bin/activate
+pip install --upgrade pip
+pip install -r backend/requirements.txt
+.venv/bin/playwright install chromium
+npm --prefix frontend-next install
+cp .env.example .env
+```
+
+Then add valid credentials to `.env`:
+
+- `GOOGLE_API_KEY` for Gemini Live API in AI Studio mode, or
+- Vertex AI settings for Google Cloud mode
+- Optional Browserbase credentials if you want hosted browser sessions
+
+### Run the app
+
+```bash
+make dev-next
+```
+
+Open:
+
+```text
+http://127.0.0.1:4174
+```
+
+### Quick verification
+
+Backend health:
+
+```bash
+curl http://127.0.0.1:8080/health
+curl http://127.0.0.1:8080/computer-use/health
+```
+
+### Judge-friendly reproducible test flow
+
+Run these commands in order:
+
+```bash
+make verify-session01
+make verify-session02
+make verify-session03
+make verify-session04
+make verify-session05
+make verify-session07
+make verify-session08
+make verify-session09
+make verify-session10
+make verify-session11
+make verify-session12
+make verify-session13
+make verify-next
+```
+
+If cloud access is configured, judges can also run:
+
+```bash
+make verify-cloud
+```
+
+### Recommended manual demo test
+
+1. Run `make dev-next`
+2. Open `http://127.0.0.1:4174`
+3. Ask a question such as `What is Firebase Cloud Functions?`
+4. Interrupt the agent with a follow-up question while it is speaking
+5. Say `show me more` to trigger the docs walkthrough
+6. Confirm the split-screen documentation flow appears
+7. Generate a tutorial artifact from the session
+
 ## 7. Deploy to Cloud Run
 
 Copy the Cloud Run runtime env template:
